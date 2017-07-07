@@ -76,7 +76,7 @@ gulp.task('bower', ['jsBower', 'cssBower']);
 ////////////////////// SASS //////////////////////
 
 gulp.task('sassBuild', function() {
-  return gulp.src(['resources/styles/*'])
+  return gulp.src(['scss/*'])
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
@@ -95,6 +95,7 @@ gulp.task('serve', ['build'], function() {
   gulp.watch(['*.html'], ['htmlBuild']); // html changes, reload.
   gulp.watch(['resources/styles/*.css', 'resources/styles/*.scss'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
   gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
+  gulp.watch(['scss/*.scss'],['cssBuild']);
 });
 
 gulp.task('jsBuild', function(){

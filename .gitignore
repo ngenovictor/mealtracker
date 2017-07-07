@@ -6,4 +6,5 @@ app/*.js.map
 .DS_Store
 build/
 typings/
-tmp/
+tmp/scss/
+scss
