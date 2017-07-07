@@ -5,9 +5,10 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'my-app',
   template: `
-  <nav class="navbar navbar-inverse">
+  <div class="jumbotron">
   	<h1>Meal Tracker</h1>
-  </nav>
+    <h2>Track Calories Intake</h2>
+  </div>
   <new-food
   [isCreatePageVisible]="isCreatePageVisible"
   [isCreateFormVisible]="isCreateFormVisible"
@@ -28,10 +29,7 @@ import { Meal } from './meal.model';
 
 
 export class AppComponent {
-	public meals:Meal[]=[
-    new Meal("Bread","solid","Ate before running",500)
-
-  ];
+	public meals:Meal[]=[];
   public isCreateFormVisible:boolean = false;
   public isCreatePageVisible:boolean = true;
 

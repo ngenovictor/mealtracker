@@ -35,6 +35,7 @@ import { Meal } from './meal.model';
 		newFoodType.value="";
 		newFoodDescription.value="";
 		newFoodCalories.value="";
+		cancelButtonClicked();
 		'>Submit</button>
 		<button class="btn btn-success pull-right" (click)="cancelButtonClicked()" >Cancel</button>
 	</div>
