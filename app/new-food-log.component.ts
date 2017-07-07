@@ -29,7 +29,13 @@ import { Meal } from './meal.model';
 			<label>Calories:</label>
 			<input type="number" class="form-control" #newFoodCalories>
 		</div>
-		<button class="btn btn-success" (click)="addNewFood(newFoodName.value,newFoodType.value,newFoodDescription.value,newFoodCalories.value)" >Submit</button>
+		<button class="btn btn-success" 
+		(click)='addNewFood(newFoodName.value,newFoodType.value,newFoodDescription.value,newFoodCalories.value);
+		newFoodName.value="";
+		newFoodType.value="";
+		newFoodDescription.value="";
+		newFoodCalories.value="";
+		'>Submit</button>
 		<button class="btn btn-success pull-right" (click)="cancelButtonClicked()" >Cancel</button>
 	</div>
 	`

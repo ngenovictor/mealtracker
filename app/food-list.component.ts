@@ -10,10 +10,10 @@ import { Meal } from './meal.model';
 					<p>Filter<p>
 				</div>
 				<div class="col-xs-10">
-					<select class="form-control">
-						<option>All</option>
-						<option>More than 500 Calories</option>
-						<option>Less than 500 Calories</option>
+					<select (change)="onChange($event.target.value)" class="form-control">
+						<option value="all" >All</option>
+						<option value="morethan" >More than 500 Calories</option>
+						<option value="lessthan">Less than 500 Calories</option>
 					</select>
 				</div>
 			</div>
@@ -24,7 +24,7 @@ import { Meal } from './meal.model';
 					<td>Description</td>
 					<td>Calories</td>
 				</thead>
-				<tr *ngFor="let meal of meals">
+				<tr *ngFor="let meal of meals | calories:selectedCaloriesView">
 					<td>{{meal.name}}</td>
 					<td>{{meal.type}}</td>
 					<td>{{meal.description}}</td>
@@ -43,9 +43,13 @@ import { Meal } from './meal.model';
 export class FoodListComponent{
 	@Input() meals:Meal[];
 	@Output() editFoodClickedSender = new EventEmitter();
+	public selectedCaloriesView: string = "all";
 
 	editFoodClicked(meal:Meal){
 		this.editFoodClickedSender.emit(meal)
+	}
+	onChange(optionFromMenu){
+		this.selectedCaloriesView = optionFromMenu;
 	}
 	
 }
